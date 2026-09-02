@@ -1,3 +1,70 @@
 <html>
-  Sorry, this webpage has not been developed yet. Check back later for a beautiful portfolio!
+  <head>
+    <title>this is noahnoah.net</title>
+    <style>
+      .body {
+        height: 100%;
+        width: 100%;
+        background: #333;
+        color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: auto;
+      }
+      #dumbgame {
+        width: 80%;
+        height: 50%;
+        background: #eee;
+        padding: 1rem;
+      }
+      #dumbgame-inner{
+        background: #000;
+        position: relative;
+      }
+      #dumbgame-ball {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background: #ff0000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <h1>this is noahnoah.net</h1>
+    <p>there is nothing to see here as I dont have anything to put here for now. play this dumb game below instead:</p>
+    <h2>dumb game (play with ball)</h2>
+    <div id="dumbgame">
+      <div id="dumbgame-inner">
+        <div class="dumbgame-ball"></div>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <script>
+      let dgball = document.getElementById("dumbgame-ball");
+      let isDragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+      dgball.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        dgball.style.cursor = "grabbing";
+        offsetX = e.clientX - dgball.offsetLeft;
+        offsetY = e.clientY - dgball.offsetTop;
+      });
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        dgball.style.left = `${e.clientX - offsetX}px`;
+        dgball.style.top = `${e.clientY - offsetY}px`;
+      });
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+        dgball.style.cursor = "grab";
+      });
+    </script>
+  </footer>
 </html>
