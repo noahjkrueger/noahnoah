@@ -1,4 +1,4 @@
-:root {
+        :root {
             --bg-color: #0f0f11;
             --card-bg: #1a1a1e;
             --text-primary: #f0f0f0;
@@ -75,10 +75,29 @@
             opacity: 1;
         }
 
-        .app-icon {
-            font-size: 2rem;
+        .app-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 12px;
-            color: var(--accent);
+            gap: 12px;
+        }
+
+        .favicon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.05);
+            flex-shrink: 0;
+        }
+
+        .favicon.loading {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .app-name {
